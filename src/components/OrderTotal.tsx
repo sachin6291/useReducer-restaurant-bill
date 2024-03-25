@@ -28,7 +28,7 @@ const OrderTotal = ({order, tip, placeOrder}: OrderTotalProps) => {
                 </p>
             </div>
             <button
-                className=" w-full border border-2 border-black font-semibold p-2 text-xl hover:bg-black hover:text-white "
+                className=" w-full  border-2 border-black font-semibold p-2 text-xl hover:bg-black hover:text-white "
                 onClick={()=>placeOrder()}
             >
                 Guardar Orden
