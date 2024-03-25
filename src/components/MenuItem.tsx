@@ -3,8 +3,9 @@ import type { MenuItem } from "../types";
 type MenuItemProps={
     item: MenuItem,
     addItem: (item: MenuItem) => void
+    
 }
-const MenuItem = ({item, addItem}: MenuItemProps) => {
+const MenuItem = ({item, addItem,}: MenuItemProps) => {
     const{name, price}=item
     
   return (

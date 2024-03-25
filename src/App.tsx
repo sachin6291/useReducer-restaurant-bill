@@ -2,10 +2,12 @@ import { menuItems } from "./data/db"
 import MenuItem from "./components/MenuItem"
 import useOrder from "./hooks/useOrder"
 import OrderContents from "./components/OrderContents"
+import OrderTotal from "./components/OrderTotal"
+import TipPercentageForm from "./components/TipPercentageForm"
 
 function App() {
 
-  const{order ,addItem}=useOrder()
+  const{order ,tip, setTip, addItem, removeItem, placeOrder}=useOrder()
 
   
 
@@ -24,14 +26,31 @@ function App() {
                 key={item.id}
                 item={item}
                 addItem={addItem}
+                
                 />
             ))}
           </div>
         </div>
         <div className=" border border-dashed border-slate-300 p-5 space-y-10 ">
-          <OrderContents
-          order={order}
-          />
+          {order.length ?(
+            <>
+              <OrderContents
+              order={order}
+              removeItem={removeItem}
+              />
+              <TipPercentageForm
+              setTip={setTip}
+              tip={tip}
+              />
+              <OrderTotal          
+              order={order}
+              tip={tip}
+              placeOrder={placeOrder}
+              />
+            </>
+          ):(
+            <p className=" text-center">Puede pedier algo de la lista del menú</p>
+          )}
         </div>
       </main>
   
